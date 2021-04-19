@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axiosLikeFetch from "axios-like-fetch";
 import covid_top_img from "../media/images/covid19_logo.png";
-
+import Covid from "./Covid_India_States";
 const About = () => {
   const [data, setdata] = useState("");
 
@@ -9,21 +9,26 @@ const About = () => {
 
   const [state, setState] = useState("");
 
-  // const [stateData, setStateData] = useState("");
+  const [stateData, setStateData] = useState("");
+
+  const getState = (event) => {
+    setState(event.target.value);
+    console.log(event.target.value);
+  };
 
   useEffect(() => {
     axiosLikeFetch({
-      url: "https://api.covid19india.org/state_district_wise.json",
+      url: "https://api.covid19india.org/data.json",
     })
       .then(function (res) {
         // handle success
-        console.log(res.data);
+        setStateData(res.data.statewise);
       })
       .catch(function (err) {
         // handle error
         console.log(err);
       });
-  }, [setState]);
+  }, []);
 
   useEffect(() => {
     axiosLikeFetch({ url: "https://covid19.mathdro.id/api" })
@@ -39,7 +44,7 @@ const About = () => {
     axiosLikeFetch({ url: "https://covid19.mathdro.id/api/countries/india" })
       .then(function (res) {
         // handle success
-        console.log(res.data);
+        // console.log(res.data);
         setIndData(res.data);
       })
       .catch(function (err) {
@@ -47,10 +52,6 @@ const About = () => {
         console.log(err);
       });
   }, []);
-  const getState = (event) => {
-    setState(event.target.value);
-    console.log(event.target.value);
-  };
 
   return (
     <div className="pt-3 container-fluid">
@@ -121,14 +122,23 @@ const About = () => {
           State Wise Covid-19 Stats 👨‍💻
         </h2>
         <center>
-          <input
+          <select
             style={{ width: "50%" }}
-            className="form-control"
-            type="text"
-            placeholder="type your state"
             onChange={getState}
-          />
-          <h1>{state}</h1>
+            value={state}
+            className="form-control"
+          >
+            {stateData ? (
+              stateData.map(
+                (val, index) => <option value={index}>{val.state}</option>
+                // console.log(val.state)
+              )
+            ) : (
+              <h6 className="text-center text-danger">No Data Recived</h6>
+            )}
+          </select>
+          {/* <h1>{state}</h1> */}
+          <Covid key={state} index={state}></Covid>
         </center>
       </div>
     </div>
