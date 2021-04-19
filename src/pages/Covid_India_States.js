@@ -14,7 +14,7 @@ const Covid_India_States = (props) => {
         // handle error
         console.log(err);
       });
-  }, [setState]);
+  });
   return (
     <div className="pt-3">
       {/* <h1>{props.index}</h1> */}

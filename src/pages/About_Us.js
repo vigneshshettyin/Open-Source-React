@@ -138,7 +138,7 @@ const About = () => {
             )}
           </select>
           {/* <h1>{state}</h1> */}
-          <Covid key={state} index={state}></Covid>
+          <Covid index={state}></Covid>
         </center>
       </div>
     </div>
