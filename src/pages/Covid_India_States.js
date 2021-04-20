@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosLikeFetch from "axios-like-fetch";
-import Dist from "./Dis_Wise_Covid";
+// import Dist from "./Dis_Wise_Covid";
 
 const Covid_India_States = (props) => {
   const [getState, setState] = useState("");
@@ -46,8 +46,7 @@ const Covid_India_States = (props) => {
       )}
 
       <hr />
-
-      <Dist></Dist>
+      {/* <Dist></Dist> */}
     </div>
   );
 };

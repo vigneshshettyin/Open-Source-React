@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosLikeFetch from "axios-like-fetch";
-import Dist from "./Get_Dist";
+// import Dist from "./Get_Dist";
 const Dis_Wis_Covid = () => {
   const [getState, setState] = useState();
 
@@ -42,11 +42,11 @@ const Dis_Wis_Covid = () => {
             </select>
           </div>
           <div class="col-sm pt-2">
-            {getS ? (
+            {/* {getS ? (
               <Dist index={getS}></Dist>
             ) : (
               <h6 className="text-center text-danger">No Data Recived</h6>
-            )}
+            )} */}
           </div>
         </div>
       </div>
