@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axiosLikeFetch from "axios-like-fetch";
-
+import Dist from "./Get_Dist";
 const Dis_Wis_Covid = () => {
   const [getState, setState] = useState();
 
   const [getS, setS] = useState();
+
+  const getMyState = (event) => {
+    setS(event.target.value);
+    console.log(getS);
+  };
 
   useEffect(() => {
     axiosLikeFetch({
@@ -18,12 +23,7 @@ const Dis_Wis_Covid = () => {
         // handle error
         console.log(err);
       });
-  }, []);
-
-  const getMyState = (event) => {
-    setS(event.target.value);
-    console.log(getS);
-  };
+  });
 
   return (
     <div>
@@ -42,11 +42,11 @@ const Dis_Wis_Covid = () => {
             </select>
           </div>
           <div class="col-sm pt-2">
-            <select className="form-control">
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
+            {getS ? (
+              <Dist index={getS}></Dist>
+            ) : (
+              <h6 className="text-center text-danger">No Data Recived</h6>
+            )}
           </div>
         </div>
       </div>
