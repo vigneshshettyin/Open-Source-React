@@ -27,4 +27,10 @@ export const SidebarData = [
     icon: <IoIcons.IoIosImage />,
     cName: "nav-text",
   },
+  {
+    title: "Vaccine Updates",
+    path: "/vaccine-covid-19",
+    icon: <IoIcons.IoIosMedkit />,
+    cName: "nav-text",
+  },
 ];

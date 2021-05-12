@@ -9,7 +9,9 @@ const Home = () => {
         <Particles params={particlesConfig}></Particles>
         <div id="text_div center_all">
           <div className="center_all">
-            <h1 className="custom-subTitle text-danger">Hola 👋</h1>
+            <h1 className="custom-subTitle text-danger">
+              React Open-Source ⚛️
+            </h1>
           </div>
         </div>
       </div>
