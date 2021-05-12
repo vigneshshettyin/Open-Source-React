@@ -5,6 +5,7 @@ import Covid from "./pages/About_Us";
 import Navbar from "./components/Navbar";
 import Climate from "./pages/Climate";
 import Image from "./pages/Image";
+import Vaccine from "./pages/Covid-19-Vac";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/covid19" component={Covid} exact />
         <Route path="/climate" component={Climate} exact />
         <Route path="/image" component={Image} exact />
+        <Route path="/vaccine-covid-19" component={Vaccine} exact />
         <Redirect to="/" />
       </Switch>
     </>
