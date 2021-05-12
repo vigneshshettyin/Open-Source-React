@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import DataTable from "react-data-table-component";
 import "styled-components";
+import ExpandC from "./Covid-19-Vac-On-Expand";
 
 const Vaccine = () => {
   const [formData, setFormData] = useState({
-    date: "2021-05-07",
-    pincode: "110020",
+    date: "",
+    pincode: "575001",
   });
 
   const [vaccineData, setVaccineData] = useState();
@@ -43,6 +44,11 @@ const Vaccine = () => {
       selector: "to",
       sortable: true,
     },
+    {
+      name: "Time (To IST)",
+      selector: "to",
+      sortable: true,
+    },
   ];
 
   function reverseString(str) {
@@ -56,17 +62,17 @@ const Vaccine = () => {
     const url = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=${
       formData["pincode"]
     }&date=${reverseString(formData["date"])}`;
-    console.log(url);
+    // console.log(url);
     axios
       .get(url)
       .then(function (response) {
         // handle success
-        console.log(response.data.centers);
+        // console.log(response.data.centers);
         setVaccineData(response.data.centers);
       })
       .catch(function (error) {
         // handle error
-        console.log(error);
+        alert(`${error}. Please Enter Valid Indian Pincode !! 😠`);
       });
   };
 
@@ -132,7 +138,13 @@ const Vaccine = () => {
         </div>
       </div>
       <div className="pt-2">
-        <DataTable title="" columns={columns} data={data} />
+        <DataTable
+          title=""
+          columns={columns}
+          data={data}
+          expandableRows
+          expandableRowsComponent={<ExpandC />}
+        />
       </div>
     </>
   );
