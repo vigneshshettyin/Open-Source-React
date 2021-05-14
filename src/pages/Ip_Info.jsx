@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 const Ip_Info = () => {
   const [getIp, setIp] = useState();
 
@@ -7,8 +8,12 @@ const Ip_Info = () => {
 
   const [ipData, setIpData] = useState();
 
-  const checkip = () => {
-    let re = new RegExp(
+  useEffect(() => {
+    checkIp();
+  });
+
+  const checkIp = () => {
+    var re = new RegExp(
       "(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]).){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))"
     );
     var flag = re.test(getIp);
@@ -20,6 +25,10 @@ const Ip_Info = () => {
     }
   };
 
+  const onChangeIp = (event) => {
+    setIp(event.target.value);
+  };
+
   const submitIp = (event) => {
     event.preventDefault();
     fetchData();
@@ -27,12 +36,12 @@ const Ip_Info = () => {
 
   const fetchData = () => {
     const url = `https://api.vigneshin.ml/ip/${getIp}`;
-    // console.log(url);
+    console.log(url);
     axios
       .get(url)
       .then(function (response) {
         // handle success
-        // console.log(response.data);
+        console.log(response.data);
         setIpData(response.data);
       })
       .catch(function (error) {
@@ -53,10 +62,7 @@ const Ip_Info = () => {
               style={{ width: "50%" }}
               type="text"
               value={getIp}
-              onChange={(event) => {
-                setIp(event.target.value);
-                checkip();
-              }}
+              onChange={onChangeIp}
               className="form-control container-fluid"
               placeholder="24.48.0.1"
               required
@@ -108,7 +114,7 @@ const Ip_Info = () => {
         <center>
           {ipData ? (
             <div className="pt-4">
-              <table class="table table-bordered">
+              <table className="table table-bordered">
                 <tbody>
                   <tr>
                     <th>IP</th>
