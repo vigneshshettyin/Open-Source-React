@@ -6,17 +6,17 @@ const columns = [
   {
     name: "Date",
     selector: "date",
-    sortable: true,
+    sortable: false,
   },
   {
     name: "Age Limit",
     selector: "min_age_limit",
-    sortable: true,
+    sortable: false,
   },
   {
     name: "Vaccine Name",
     selector: "vaccine",
-    sortable: true,
+    sortable: false,
   },
   {
     name: "Available Capacity",
@@ -24,9 +24,37 @@ const columns = [
     sortable: true,
   },
 ];
+
+const ExpandC = ({ data }) => (
+  <>
+    <div className="container-fluid">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            {data.slots.map((value, index) => {
+              return (
+                <td>
+                  {value}
+                  {console.log(value)}
+                </td>
+              );
+            })}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </>
+);
+
 const ExpandableComponent = ({ data }) => (
   <>
-    <DataTable title="" columns={columns} data={data.sessions} />
+    <DataTable
+      title=""
+      columns={columns}
+      data={data.sessions}
+      expandableRows
+      expandableRowsComponent={<ExpandC />}
+    />
   </>
 );
 

@@ -3,6 +3,7 @@ import axios from "axios";
 import DataTable from "react-data-table-component";
 import "styled-components";
 import ExpandC from "./Covid-19-Vac-On-Expand";
+import ArrowDownward from "@material-ui/icons/ArrowDownward";
 
 const Vaccine = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Vaccine = () => {
   const [vaccineData, setVaccineData] = useState();
 
   const data = vaccineData;
+
   const columns = [
     {
       name: "Center ID",
@@ -32,24 +34,21 @@ const Vaccine = () => {
     {
       name: "Fee Type",
       selector: "fee_type",
-      sortable: true,
+      sortable: false,
     },
     {
       name: "Time (from IST)",
       selector: "from",
-      sortable: true,
+      sortable: false,
     },
     {
       name: "Time (To IST)",
       selector: "to",
-      sortable: true,
-    },
-    {
-      name: "Time (To IST)",
-      selector: "to",
-      sortable: true,
+      sortable: false,
     },
   ];
+
+  const sortIcon = <ArrowDownward />;
 
   function reverseString(str) {
     var splitString = str.split("-");
@@ -137,12 +136,14 @@ const Vaccine = () => {
           </form>
         </div>
       </div>
-      <div className="pt-2">
+      <div className=" container pt-2">
         <DataTable
           title=""
           columns={columns}
           data={data}
+          sortIcon={sortIcon}
           expandableRows
+          pagination
           expandableRowsComponent={<ExpandC />}
         />
       </div>
