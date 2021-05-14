@@ -26,7 +26,7 @@ const Ip_Info = () => {
   };
 
   const fetchData = () => {
-    const url = `http://ip-api.com/json/${getIp}`;
+    const url = `https://api.vigneshin.ml/ip/${getIp}`;
     // console.log(url);
     axios
       .get(url)
