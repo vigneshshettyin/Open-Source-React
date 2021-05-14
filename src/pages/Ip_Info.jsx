@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 const Ip_Info = () => {
-  const [getIp, setIp] = useState("24.48.0.1");
+  const [getIp, setIp] = useState();
 
   const [getMessage, setMessage] = useState();
 
