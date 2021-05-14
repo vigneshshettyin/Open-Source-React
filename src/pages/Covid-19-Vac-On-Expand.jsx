@@ -35,7 +35,7 @@ const ExpandC = ({ data }) => (
               return (
                 <td>
                   {value}
-                  {console.log(value)}
+                  {/* {console.log(value)} */}
                 </td>
               );
             })}

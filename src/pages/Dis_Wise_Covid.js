@@ -8,7 +8,7 @@ const Dis_Wis_Covid = () => {
 
   const getMyState = (event) => {
     setS(event.target.value);
-    console.log(getS);
+    // console.log(getS);
   };
 
   useEffect(() => {

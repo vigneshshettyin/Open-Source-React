@@ -36,12 +36,12 @@ const Ip_Info = () => {
 
   const fetchData = () => {
     const url = `https://api.vigneshin.ml/ip/${getIp}`;
-    console.log(url);
+    // console.log(url);
     axios
       .get(url)
       .then(function (response) {
         // handle success
-        console.log(response.data);
+        // console.log(response.data);
         setIpData(response.data);
       })
       .catch(function (error) {
