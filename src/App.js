@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Climate from "./pages/Climate";
 import Image from "./pages/Image";
 import Vaccine from "./pages/Covid-19-Vac";
+import Ip_Info from "./pages/Ip_Info";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/climate" component={Climate} exact />
         <Route path="/image" component={Image} exact />
         <Route path="/vaccine-covid-19" component={Vaccine} exact />
+        <Route path="/ip-info" component={Ip_Info} exact />
         <Redirect to="/" />
       </Switch>
     </>
