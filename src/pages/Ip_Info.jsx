@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 const Ip_Info = () => {
   const [getIp, setIp] = useState("24.48.0.1");
