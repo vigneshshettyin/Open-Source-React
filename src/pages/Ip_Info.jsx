@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 const Ip_Info = () => {
   const [getIp, setIp] = useState("24.48.0.1");
@@ -7,7 +7,7 @@ const Ip_Info = () => {
 
   const [ipData, setIpData] = useState();
 
-  useEffect(() => {
+  const checkip = () => {
     let re = new RegExp(
       "(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]).){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))"
     );
@@ -18,7 +18,7 @@ const Ip_Info = () => {
     } else {
       setMessage(0);
     }
-  });
+  };
 
   const submitIp = (event) => {
     event.preventDefault();
@@ -55,6 +55,7 @@ const Ip_Info = () => {
               value={getIp}
               onChange={(event) => {
                 setIp(event.target.value);
+                checkip();
               }}
               className="form-control container-fluid"
               placeholder="24.48.0.1"
