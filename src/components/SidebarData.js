@@ -33,4 +33,10 @@ export const SidebarData = [
     icon: <IoIcons.IoIosMedkit />,
     cName: "nav-text",
   },
+  {
+    title: "Get IP Info",
+    path: "/ip-info",
+    icon: <IoIcons.IoIosGitNetwork />,
+    cName: "nav-text",
+  },
 ];

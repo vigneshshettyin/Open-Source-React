@@ -1,0 +1,169 @@
+import React, { useState } from "react";
+import axios from "axios";
+const Ip_Info = () => {
+  const [getIp, setIp] = useState();
+
+  const [getMessage, setMessage] = useState();
+
+  const [ipData, setIpData] = useState();
+
+  const checkip = () => {
+    let re = new RegExp(
+      "(?:(?:2(?:[0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]).){3}(?:(?:2([0-4][0-9]|5[0-5])|[0-1]?[0-9]?[0-9]))"
+    );
+    var flag = re.test(getIp);
+
+    if (flag === true) {
+      setMessage(1);
+    } else {
+      setMessage(0);
+    }
+  };
+
+  const submitIp = (event) => {
+    event.preventDefault();
+    fetchData();
+  };
+
+  const fetchData = () => {
+    const url = `http://ip-api.com/json/${getIp}`;
+    // console.log(url);
+    axios
+      .get(url)
+      .then(function (response) {
+        // handle success
+        // console.log(response.data);
+        setIpData(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        alert(`${error}. Please Enter Valid IP !! 😠`);
+      });
+  };
+
+  return (
+    <>
+      <div className="container">
+        <div>
+          <h2 className="text-warning text-center pt-4">Get IP Details ⛏️</h2>
+        </div>
+        <form className="pt-3" onSubmit={submitIp}>
+          <div className="form-group">
+            <input
+              style={{ width: "50%" }}
+              type="text"
+              value={getIp}
+              onChange={(event) => {
+                setIp(event.target.value);
+                checkip();
+              }}
+              className="form-control container-fluid"
+              placeholder="24.48.0.1"
+              required
+            />
+            <small id="emailHelp" className="form-text text-muted  text-center">
+              🚧 We never store any ip address.
+            </small>
+          </div>
+          <div style={{ padding: "25px" }}>
+            {getMessage ? (
+              <center>
+                <div
+                  style={{ width: "50%" }}
+                  className="alert alert-success text-capitalize"
+                  role="alert"
+                >
+                  Ip Address is Valid! 😄
+                </div>
+              </center>
+            ) : (
+              <center>
+                <div
+                  style={{ width: "50%" }}
+                  className="alert alert-danger text-capitalize"
+                  role="alert"
+                >
+                  Please enter correct IP Address! 😠
+                </div>
+              </center>
+            )}
+          </div>
+          <center>
+            {getMessage ? (
+              <button type="submit" className="btn btn-outline-success">
+                Get Info ❕
+              </button>
+            ) : (
+              <button
+                disabled
+                type="submit"
+                className="btn btn-outline-success"
+              >
+                Get Info ❕
+              </button>
+            )}
+          </center>
+        </form>
+
+        <center>
+          {ipData ? (
+            <div className="pt-4">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th>IP</th>
+                    <td>{ipData["query"]}</td>
+                  </tr>
+                  <tr>
+                    <th>ISP</th>
+                    <td>{ipData["isp"]}</td>
+                  </tr>
+                  <tr>
+                    <th>Organization</th>
+                    <td>{ipData["org"]}</td>
+                  </tr>
+                  <tr>
+                    <th>As</th>
+                    <td>{ipData["as"]}</td>
+                  </tr>
+                  <tr>
+                    <th>City</th>
+                    <td>{ipData["city"]}</td>
+                  </tr>
+                  <tr>
+                    <th>State</th>
+                    <td>{ipData["regionName"]}</td>
+                  </tr>
+                  <tr>
+                    <th>Country</th>
+                    <td>{ipData["country"]}</td>
+                  </tr>
+                  <tr>
+                    <th>Zip</th>
+                    <td>{ipData["zip"]}</td>
+                  </tr>
+                  <tr>
+                    <th>Approx Location</th>
+                    <td>{`Latitude: ${ipData["lat"]}   Longitude: ${ipData["lon"]} `}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="p-3">
+              <div
+                style={{ width: "50%" }}
+                className="alert alert-danger text-capitalize"
+                role="alert"
+              >
+                Data Not Available! 😠
+              </div>
+            </div>
+          )}
+        </center>
+      </div>
+    </>
+  );
+};
+
+export default Ip_Info;
