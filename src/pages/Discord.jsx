@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import DiscordCustom from "./DiscordCustom";
 const { Webhook } = require("discord-webhook-node");
 
 var botName = "React Open-Source";
@@ -78,6 +78,7 @@ const Discord = () => {
                   onChange={OnChangeValue}
                   class="form-control"
                   name="webhookUrl"
+                  required
                   placeholder="Discord Webhook URL"
                 />
                 <small id="emailHelp" class="form-text text-muted">
@@ -91,11 +92,12 @@ const Discord = () => {
                 onChange={OnChangeValue}
                 name="message"
                 rows="3"
+                required
               ></textarea>
               <center>
                 <div className="pt-4">
-                  <button type="submit" class="btn btn-primary">
-                    Submit
+                  <button type="submit" class="btn btn-outline-success">
+                    Send Message 🙈
                   </button>
                 </div>
               </center>
@@ -104,7 +106,7 @@ const Discord = () => {
             {/* <h3>{JSON.stringify(getText)}</h3> */}
           </div>
         ) : (
-          <h2>Still Working On it</h2>
+          <DiscordCustom></DiscordCustom>
         )}
       </div>
     </>
