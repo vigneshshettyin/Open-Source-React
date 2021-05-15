@@ -6,6 +6,7 @@ import Climate from "./pages/Climate";
 import Image from "./pages/Image";
 import Vaccine from "./pages/Covid-19-Vac";
 import Ip_Info from "./pages/Ip_Info";
+import Discord from "./pages/Discord";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/image" component={Image} exact />
         <Route path="/vaccine-covid-19" component={Vaccine} exact />
         <Route path="/ip-info" component={Ip_Info} exact />
+        <Route path="/discord-webhook" component={Discord} exact />
         <Redirect to="/" />
       </Switch>
     </>
