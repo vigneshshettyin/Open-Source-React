@@ -6,7 +6,7 @@ const Climate = () => {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=18d0fd82fd86e1a82d5cc13758a09b31&units=imperial`;
+      const url = `https://api.vigneshin.ml/weather/${city}`;
       const response = await fetch(url);
       const data_opt = await response.json();
       setData(data_opt.main);
