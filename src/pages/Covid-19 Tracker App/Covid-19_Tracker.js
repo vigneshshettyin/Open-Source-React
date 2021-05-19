@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosLikeFetch from "axios-like-fetch";
-import covid_top_img from "../media/images/covid19_logo.png";
+import covid_top_img from "../../media/images/covid19_logo.png";
 import Covid from "./Covid_India_States";
 const About = () => {
   const [data, setdata] = useState("");
