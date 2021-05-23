@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import TwitterIcon from '@material-ui/icons/Twitter';
-
-
+import * as AiIcons from "react-icons/ai";
+import './Quotes.css'
 function Quotestr(props){
     return(
         <>
@@ -22,7 +21,7 @@ const Quote=({selectedquote,selectrandindex})=>{
     return(
         <>
         <Quotestr text={selectedquote()&& selectedquote().quote} author={selectedquote()&& selectedquote().author}/>
-    <button onClick={() => {window.location.href=`https://twitter.com/intent/tweet?url=&text=${selectedquote()&& selectedquote().quote}`}} className="button tweet" title="Tweet this quote"><TwitterIcon/></button>
+    <button onClick={() => {window.location.href=`https://twitter.com/intent/tweet?url=&text=${selectedquote()&& selectedquote().quote}`}} className="button tweet" title="Tweet this quote"><AiIcons.AiOutlineTwitter/></button>
     <button onClick={() => {window.location.href=`http://www.tumblr.com/share?v=3&u=&t=${selectedquote()&& selectedquote().quote}`}} className="button tumbler" title="Share on Tumbler">t</button>
     <button  className="button newquote" onClick={selectrandindex}>New Quote</button>
     </>
