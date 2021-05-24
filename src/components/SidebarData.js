@@ -2,7 +2,7 @@ import React from "react";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
-
+import { ImQuotesLeft } from "react-icons/im";
 export const SidebarData = [
   {
     title: "Home",
@@ -39,4 +39,9 @@ export const SidebarData = [
     path: "/discord-webhook",
     icon: <RiIcons.RiDiscordFill />,
   },
+  {
+    title:"Random Quotes",
+    path:"/quotes",
+    icon:<ImQuotesLeft/>
+  }
 ];
