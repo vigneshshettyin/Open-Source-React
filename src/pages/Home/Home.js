@@ -1,9 +1,9 @@
 import React from "react";
 import Particles from "react-particles-js";
-import particlesConfig from "../components/PartConfig";
-import "../index.css";
+import particlesConfig from "../../components/PartConfig";
+import "../Home/Home.css";
 import { Link } from "react-router-dom";
-import { SidebarData } from "../components/SidebarData";
+import { SidebarData } from "../../components/SidebarData";
 
 const Home = () => {
   return (
