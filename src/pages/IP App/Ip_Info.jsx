@@ -35,7 +35,7 @@ const Ip_Info = () => {
   };
 
   const fetchData = () => {
-    const url = `https://api.vigneshin.ml/ip/${getIp}`;
+    const url = `https://ipapi.co/${getIp}/json`;
     // console.log(url);
     axios
       .get(url)
@@ -118,39 +118,19 @@ const Ip_Info = () => {
                 <tbody>
                   <tr>
                     <th>IP</th>
-                    <td>{ipData["query"]}</td>
+                    <td>{`${ipData["ip"]} (${ipData["version"]})`}</td>
                   </tr>
                   <tr>
                     <th>ISP</th>
-                    <td>{ipData["isp"]}</td>
-                  </tr>
-                  <tr>
-                    <th>Organization</th>
-                    <td>{ipData["org"]}</td>
-                  </tr>
-                  <tr>
-                    <th>As</th>
-                    <td>{ipData["as"]}</td>
+                    <td>{`${ipData["org"]} (${ipData["asn"]})`}</td>
                   </tr>
                   <tr>
                     <th>City</th>
-                    <td>{ipData["city"]}</td>
-                  </tr>
-                  <tr>
-                    <th>State</th>
-                    <td>{ipData["regionName"]}</td>
-                  </tr>
-                  <tr>
-                    <th>Country</th>
-                    <td>{ipData["country"]}</td>
-                  </tr>
-                  <tr>
-                    <th>Zip</th>
-                    <td>{ipData["zip"]}</td>
+                    <td>{`${ipData["city"]}, ${ipData["region"]}, ${ipData["country_name"]}, ${ipData["postal"]}`}</td>
                   </tr>
                   <tr>
                     <th>Approx Location</th>
-                    <td>{`Latitude: ${ipData["lat"]}   Longitude: ${ipData["lon"]} `}</td>
+                    <td>{`Latitude: ${ipData["latitude"]}   Longitude: ${ipData["longitude"]} `}</td>
                   </tr>
                 </tbody>
               </table>
