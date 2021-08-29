@@ -1,76 +1,74 @@
-.quote-box{
-    border-radius:3px;
-    position:relative;
-    margin:10% auto auto auto;
-    width:450px;
-    padding:40px 50px;
-    display:table;
-    background-color:#fff;
-    
+.quote-box {
+  background-color: #0fbcf9;
+  border-radius: 50px;
+  position: relative;
+  margin: 10% auto auto auto;
+  width: 450px;
+  padding: 40px 50px;
+  display: table;
 }
-.head{
-    text-align: center;
-    text-decoration: underline;
-    font-size: 6em;
-    margin-top: 5%;
+.head {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 6em;
+  margin-top: 5%;
 }
-.quote-text{
-    text-align:center;
-    width:450px;
-    height:auto;
-    clear:both;
-    font-weight:500;
-    font-size:1.75em;
+.quote-text {
+  text-align: center;
+  width: 450px;
+  height: auto;
+  clear: both;
+  font-weight: 500;
+  font-size: 1.75em;
 }
 .quote-author {
-    width:450px;
-    height:auto;
-    clear:both;
-    padding-top:20px;
-    font-size:1em; 
-    text-align:right;
-    opacity: .5;
-  }
+  width: 450px;
+  height: auto;
+  clear: both;
+  padding-top: 20px;
+  font-size: 1em;
+  text-align: right;
+  opacity: 0.5;
+}
 
-.button{
-    width:450px;
-    margin:auto;
-    display:block;
-    height:38px;
-      border:none;
-      border-radius:3px;
-      color:#fff;
-      background-color:#333;
-      outline:none;
-      font-size:0.85em;
-      padding: 8px 18px 6px 18px;
-      margin-top:30px;
-      opacity:1;
-      cursor:pointer;
+.button {
+  width: 450px;
+  margin: auto;
+  display: block;
+  height: 38px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #333;
+  outline: none;
+  font-size: 0.85em;
+  padding: 8px 18px 6px 18px;
+  margin-top: 30px;
+  opacity: 1;
+  cursor: pointer;
 }
-.tweet,.tumbler{
-    float:left;
-    padding:0px;
-    padding-top:3.5px;
-    text-align:center;
-    font-size:1.2em;
-    margin-right:5px;
-    height:30px;
-    width:40px;
+.tweet,
+.tumbler {
+  float: left;
+  padding: 0px;
+  padding-top: 3.5px;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 5px;
+  height: 30px;
+  width: 40px;
 }
-.tumbler{
-    font-weight: bolder;
-    font-size: 1.3em;
+.tumbler {
+  font-weight: bolder;
+  font-size: 1.3em;
 }
-.newquote{
-    float: right;
-    padding-top:8px;
-    text-align:center;
-    height:30px;
-    width: auto;
-
-   
+.newquote {
+  float: right;
+  padding-top: 8px;
+  text-align: center;
+  height: 30px;
+  width: auto;
 }
-.button:hover{
-    opacity: .7;
+.button:hover {
+  opacity: 0.7;
 }
