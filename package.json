@@ -14,7 +14,7 @@
     "discord-webhook-node": "^1.1.8",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
-    "react-data-table-component": "^6.11.7",
+    "react-data-table-component": "6.11.8",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-particles-js": "^3.4.1",
